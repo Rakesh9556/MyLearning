@@ -3,13 +3,15 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class MyLearning {
+public class CreateApp {
     public static void main(String [] args) {
 
         // Configuration
         // With the configuration we can build the SessionFactory
         Configuration configuration = new Configuration();
-        configuration.configure("hibernate.cfg.xml"); // all will be set from Envirnment class
+        // configuration.configure("hibernate.cfg.xml"); // all will be set from Envirnment class
+        // It will automatically detect the configuration file
+        configuration.configure();
         configuration.addAnnotatedClass(Student.class); // add the class/entity to the configuration
 
         // SessionFactory
@@ -27,10 +29,9 @@ public class MyLearning {
         Session session = sessionFactory.openSession();
 
         Student student = new Student();
-        student.setId(102);
-        student.setName("Rajesh");
-        student.setClassName("PG");
-        student.setAge(25);
+        student.setName("Rakesh Guru");
+        student.setClassName("Under Graduate");
+        student.setAge(21);
 
 
         // We need to tell hibernate to generate the insert query to save the student
